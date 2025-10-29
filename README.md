@@ -1,39 +1,44 @@
-perfeito 🔥 — aqui está o **README.md completo**, já bilíngue (🇺🇸 English + 🇧🇷 Português) e formatado profissionalmente com seções, emojis, blocos de código e estrutura ideal para o repositório **MoneyYOU-Final-Version**.
-
-Basta copiar e colar este conteúdo direto no arquivo `README.md` da raiz do projeto 👇
 
 ---
 
 ```markdown
 # 💰 MoneyYOU – Personal Finance App / Aplicativo Financeiro Pessoal
 
-**MoneyYOU** is a personal finance management app developed in **Flutter**, evolving from the original version built with **Python + Firebase**.  
-It introduces a **modern translucent interface (Liquid Glass UI)** and real-time synchronization with **Firebase**.
+**MoneyYOU** is a modern personal finance app developed in **Flutter**, evolving from the original version built with **Python + Firebase**.  
+It introduces a clean, translucent visual identity inspired by Apple’s **Liquid Glass UI**, combining elegance, usability, and performance.  
 
-**MoneyYOU** é um aplicativo de controle financeiro pessoal desenvolvido em **Flutter**, como evolução da versão original feita em **Python + Firebase**.  
-Esta versão traz uma nova **interface moderna e translúcida (Liquid Glass UI)** e sincronização em tempo real com o **Firebase**.
+**MoneyYOU** é um aplicativo moderno de controle financeiro pessoal desenvolvido em **Flutter**, como evolução da versão original feita em **Python + Firebase**.  
+A nova versão traz uma identidade visual limpa e translúcida inspirada no **Liquid Glass UI** do iOS, unindo elegância, praticidade e desempenho.
 
 ---
 
 ## 🚀 Overview / Visão Geral
 
-| 🇺🇸 English | 🇧🇷 Português |
-|-------------|---------------|
-| Manage your income, expenses, and balance with an elegant interface designed for productivity and clarity. | Gerencie suas receitas, despesas e saldo com uma interface elegante, pensada para produtividade e clareza. |
-| The app supports cloud synchronization, visual dashboards, and a consistent design language across platforms. | O app oferece sincronização em nuvem, dashboards visuais e uma linguagem de design consistente entre plataformas. |
+MoneyYOU was designed to make financial control simple, beautiful, and intelligent.  
+It allows users to manage their **income, expenses, and total balance**, visualize financial health through **dashboards and KPIs**, and soon — generate **reports and charts** automatically.
+
+O objetivo do MoneyYOU é tornar o controle financeiro **simples, bonito e inteligente**.  
+O aplicativo permite gerenciar **receitas, despesas e saldo total**, visualizar a saúde financeira por meio de **dashboards e indicadores**, e futuramente — gerar **relatórios e gráficos automáticos**.
 
 ---
 
 ## 🧩 Technologies / Tecnologias
 
-| Area / Área | Tool / Ferramenta |
-|--------------|------------------|
-| Language / Linguagem | Flutter (Dart) |
-| Database / Banco de Dados | Firebase Firestore |
-| Authentication / Autenticação | Firebase Auth |
-| Local Storage / Armazenamento Local | SharedPreferences |
-| Visual Style / Estilo Visual | MoneyYOU Theme (Glass UI + Purple Gradient) |
-| State Management / Gerenciamento de Estado | setState (base) → Provider (future) |
+The project is built with:
+- **Flutter (Dart)** for cross-platform development  
+- **Firebase Firestore** for real-time database  
+- **Firebase Auth** for user authentication  
+- **SharedPreferences** for local storage  
+- **Custom visual theme (MoneyYOU Glass)** using purple gradients and blur effects  
+- **setState** for initial state management (to be replaced by **Provider** in future)
+
+O projeto foi desenvolvido com:
+- **Flutter (Dart)** para multiplataforma  
+- **Firebase Firestore** como banco de dados em tempo real  
+- **Firebase Auth** para autenticação  
+- **SharedPreferences** para armazenamento local  
+- **Tema visual personalizado (MoneyYOU Glass)** com gradiente roxo e efeito de desfoque  
+- **setState** como base de gerenciamento de estado (futuramente com **Provider**)
 
 ---
 
@@ -42,17 +47,17 @@ Esta versão traz uma nova **interface moderna e translúcida (Liquid Glass UI)*
 ```
 
 lib/
-├── main.dart                # Entry point / Ponto de entrada
+├── main.dart                 → Entry point
 ├── screens/
-│    ├── login_screen.dart   # Login screen with Glass effect / Tela de login com efeito vidro
-│    ├── dashboard_screen.dart # Main dashboard / Painel principal
+│    ├── login_screen.dart    → Login with Liquid Glass design
+│    ├── dashboard_screen.dart → Financial dashboard with KPIs
 │    └── ...
 ├── models/
-│    └── transacao.dart      # Transaction model / Modelo de transação
+│    └── transacao.dart       → Transaction model (income/expense)
 ├── logic/
-│    └── firebase_service.dart # Firebase integration / Integração com Firebase
+│    └── firebase_service.dart → Firebase integration and sync
 └── ui/
-└── components/         # Reusable widgets / Componentes reutilizáveis
+└── components/          → Reusable widgets and UI elements
 
 ````
 
@@ -60,9 +65,9 @@ lib/
 
 ## ⚙️ Installation / Instalação
 
-### 🇺🇸 English
+To run MoneyYOU locally:
 
-1. Clone the repository:
+1. Clone this repository:
    ```bash
    git clone https://github.com/Rian1303/MoneyYOU-Final-Version.git
    cd MoneyYOU-Final-Version
@@ -74,9 +79,10 @@ lib/
    flutter pub get
    ```
 
-3. Configure Firebase:
+3. Configure Firebase by adding:
 
-   * Add `google-services.json` (Android) and/or `GoogleService-Info.plist` (iOS) to the respective folders.
+   * `google-services.json` inside `android/app/`
+   * `GoogleService-Info.plist` inside `ios/Runner/`
 
 4. Run the app:
 
@@ -84,11 +90,9 @@ lib/
    flutter run
    ```
 
----
+Para executar o MoneyYOU localmente:
 
-### 🇧🇷 Português
-
-1. Clone o repositório:
+1. Clone este repositório:
 
    ```bash
    git clone https://github.com/Rian1303/MoneyYOU-Final-Version.git
@@ -101,9 +105,10 @@ lib/
    flutter pub get
    ```
 
-3. Configure o Firebase:
+3. Configure o Firebase adicionando:
 
-   * Adicione `google-services.json` (Android) e/ou `GoogleService-Info.plist` (iOS) nas pastas correspondentes.
+   * `google-services.json` dentro de `android/app/`
+   * `GoogleService-Info.plist` dentro de `ios/Runner/`
 
 4. Execute o app:
 
@@ -115,35 +120,35 @@ lib/
 
 ## 🧠 Features / Recursos
 
-| Feature          | Descrição                                                                                                              |
-| ---------------- | ---------------------------------------------------------------------------------------------------------------------- |
-| 💎 Modern UI     | Liquid Glass design with purple gradients and animations / Design “Liquid Glass” com gradiente roxo e animações suaves |
-| 🔐 Login         | Auth system with Firebase (Email/Password)                                                                             |
-| 📊 Dashboard     | Financial KPIs: Total Balance, Income, Expenses / KPIs financeiros: Saldo Total, Receitas, Despesas                    |
-| 💾 Data Sync     | Cloud storage via Firebase Firestore                                                                                   |
-| ⚙️ Customization | Light/Dark theme, currency, and settings screen                                                                        |
-| 🧮 Transactions  | Add, edit, delete and filter financial entries (in development)                                                        |
-| 📈 Reports       | Visual charts (pie and line) and CSV/PDF export (coming soon)                                                          |
+* **Modern UI:** Elegant translucent interface with purple tones and blur effects
+* **Login system:** Firebase authentication with email and password
+* **Dashboard:** Displays total balance, income, and expenses in real time
+* **Local and cloud sync:** Uses Firestore for instant updates and SharedPreferences for offline use
+* **Custom theme:** Dynamic light/dark mode and currency selection
+* **Transactions:** Create, edit, delete, and filter income or expenses (in development)
+* **Reports:** Graphs, insights, and CSV/PDF export (coming soon)
 
 ---
 
-## 🧭 Roadmap / Roteiro de Desenvolvimento
+## 🧭 Roadmap / Roteiro
 
-* [x] Base Flutter project and theme setup
-* [x] Login screen (Liquid Glass UI)
-* [x] Dashboard layout with KPIs
-* [ ] Transaction system (CRUD + Firestore)
-* [ ] Data charts (pie/line graphs)
-* [ ] CSV / PDF export
-* [ ] Google & Apple login integration
-* [ ] Responsive web version
+* ✅ Base Flutter structure and MoneyYOU theme
+* ✅ Login screen with Liquid Glass design
+* ✅ Dashboard with KPIs
+* 🔄 Transaction system with Firebase integration
+* 🔄 Graphs and analytics dashboard
+* ⏳ PDF and CSV export
+* ⏳ Google / Apple Sign-in
+* ⏳ Web and desktop compatibility
 
 ---
 
 ## 👨‍💻 Author / Autor
 
 **Rian Pluma Gomes**
-💻 Software Developer 
+Software Developer 
+GitHub: [@Rian1303](https://github.com/Rian1303)
+Email: [rian.pluma.dev@gmail.com](mailto:rian.programador@outlook.com)
 
 ---
 
@@ -152,19 +157,19 @@ lib/
 This project is licensed under the **MIT License**.
 You are free to use, modify, and distribute this software with attribution.
 
-Este projeto é distribuído sob a licença **MIT**.
-Sinta-se livre para usar, modificar e distribuir o código com os devidos créditos.
+Este projeto está licenciado sob a **Licença MIT**.
+Você é livre para usar, modificar e distribuir este software com os devidos créditos.
 
 ---
 
 ## 🖼️ Screenshots (Preview)
 
-> 🧪 Coming soon — visual previews of the app screens will be added here once the interface is finalized.
+*(coming soon — interface previews will be added here)*
+*(em breve — prévias da interface serão adicionadas aqui)*
 
 ---
 
 ## 🌐 Connect
 
-* 💻 GitHub: [Rian1303](https://github.com/Rian1303)
-
-````
+Follow the evolution of MoneyYOU and other creative projects:
+GitHub → [github.com/Rian1303](https://github.com/Rian1303)
