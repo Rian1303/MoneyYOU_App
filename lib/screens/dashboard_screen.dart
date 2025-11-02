@@ -1,6 +1,7 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'transactions_screen.dart';
+import 'settings_screen.dart';
 
 class DashboardScreen extends StatefulWidget {
   const DashboardScreen({super.key});
@@ -51,20 +52,21 @@ class _DashboardScreenState extends State<DashboardScreen> {
               _buildKpiRow(),
               const SizedBox(height: 20),
               Expanded(
-                child: Center(
-                  child: selectedIndex == 1
-                      ? const TransactionsScreen()
-                      : Text(
-                          selectedIndex == 0
-                              ? "Área do grafico e de exportar relatório em PDF"
-                              : "⚙️ Configurações do app",
-                          style: const TextStyle(
-                            color: Colors.white70,
-                            fontSize: 16,
-                          ),
-                        ),
-                ),
-              ),
+  child: Center(
+    child: selectedIndex == 0
+        ? const Text(
+            "Área do gráfico e de exportar relatório em PDF",
+            style: TextStyle(
+              color: Colors.white70,
+              fontSize: 16,
+            ),
+          )
+        : selectedIndex == 1
+            ? const TransactionsScreen()
+            : const SettingsScreen(),
+  ),
+),
+
             ],
           ),
         ),
@@ -189,7 +191,7 @@ class _Sidebar extends StatelessWidget {
               const Padding(
                 padding: EdgeInsets.all(12.0),
                 child: Text(
-                  "v1.0.0",
+                  "v0.0.1-alpha",
                   style: TextStyle(color: Colors.white38, fontSize: 12),
                 ),
               ),

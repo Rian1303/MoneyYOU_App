@@ -1,6 +1,7 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'dashboard_screen.dart';
+import 'register_window.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -191,6 +192,23 @@ class _LoginScreenState extends State<LoginScreen> with SingleTickerProviderStat
                   ),
                 ),
               ),
+              const SizedBox(height: 16,),
+              Center(
+                child: TextButton(
+                  onPressed:() {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) => const RegisterWindow()),
+                    );
+                  },
+                  child: const Text(
+                    "Não tem uma conta/ Registre-se",
+                    style: TextStyle(
+                      color: Color(0xffa855f7),
+                      fontWeight: FontWeight.w600
+                    ),
+                  ),
+                )
+              )
             ],
           ),
         ),
