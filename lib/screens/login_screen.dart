@@ -192,23 +192,23 @@ class _LoginScreenState extends State<LoginScreen> with SingleTickerProviderStat
                   ),
                 ),
               ),
-              const SizedBox(height: 16,),
+              const SizedBox(height: 16),
               Center(
                 child: TextButton(
-                  onPressed:() {
+                  onPressed: () {
                     Navigator.of(context).push(
                       MaterialPageRoute(builder: (context) => const RegisterScreen()),
                     );
                   },
                   child: const Text(
-                    "Não tem uma conta/ Registre-se",
+                    "Não tem uma conta? Registre-se",
                     style: TextStyle(
                       color: Color(0xffa855f7),
-                      fontWeight: FontWeight.w600
+                      fontWeight: FontWeight.w600,
                     ),
                   ),
-                )
-              )
+                ),
+              ),
             ],
           ),
         ),
@@ -232,6 +232,13 @@ class _LoginScreenState extends State<LoginScreen> with SingleTickerProviderStat
             obscureText: obscure,
             style: const TextStyle(color: Colors.white),
             cursorColor: const Color(0xFFA855F7),
+            textInputAction: obscure ? TextInputAction.done : TextInputAction.next,
+            onSubmitted: (value) {
+              // Se for o campo de senha e não estiver carregando, faz login
+              if (obscure && !isLoading) {
+                _login();
+              }
+            },
             decoration: InputDecoration(
               prefixIcon: Icon(icon, color: Colors.white70),
               labelText: label,

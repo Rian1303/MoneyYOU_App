@@ -3,7 +3,6 @@ import 'screens/login_screen.dart';
 
 void main() {
   runApp(const MoneyYouApp());
-  
 }
 
 class MoneyYouApp extends StatelessWidget {
