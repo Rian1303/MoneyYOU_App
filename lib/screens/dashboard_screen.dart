@@ -33,71 +33,68 @@ class _DashboardScreenState extends State<DashboardScreen> {
             Expanded(
               flex: 3,
               child: _GlassPanel(
-                  child: Stack(
-                    children: [
-                              Padding(
-          padding: const EdgeInsets.all(20),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const Text(
-                "Painel Financeiro",
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 22,
-                  fontWeight: FontWeight.w700,
-                ),
-              ),
-              const SizedBox(height: 18),
-              _buildKpiRow(),
-              const SizedBox(height: 20),
-              Expanded(
-  child: Center(
-    child: selectedIndex == 0
-        ? const Text(
-            "Área do gráfico e de exportar relatório em PDF",
-            style: TextStyle(
-              color: Colors.white70,
-              fontSize: 16,
-            ),
-          )
-        : selectedIndex == 1
-            ? const TransactionsScreen()
-            : const SettingsScreen(),
-  ),
-),
+                child: Stack(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(20),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const Text(
+                            "MoneyYOU",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 22,
+                              fontWeight: FontWeight.w700,
+                            ),
+                          ),
+                          const SizedBox(height: 18),
 
-            ],
-          ),
-        ),
-        Positioned(
-          right: 20,
-          bottom: 20,
-          child: FloatingActionButton.extended(
-            onPressed:(){
-              showDialog(
-                context: context,
-                builder: (context) => AlertDialog(
-                  title: const Text("Exportar PDF"),
-                  content: const Text("Relatório exportado com sucesso!"),
-                  actions: [
-                    TextButton(
-                      onPressed: () => Navigator.of(context).pop(),
-                      child: const Text("OK"),
+                          // Exibe KPIs somente na Dashboard e Transações
+                          if (selectedIndex == 0 || selectedIndex == 1) ...[
+                            _buildKpiRow(),
+                            const SizedBox(height: 20),
+                          ],
+
+                          // Conteúdo dinâmico conforme tela selecionada
+                          Expanded(
+                            child: _buildMainContent(selectedIndex),
+                          ),
+                        ],
+                      ),
+                    ),
+
+                    // ===== BOTÃO DE EXPORTAR PDF =====
+                    Positioned(
+                      right: 20,
+                      bottom: 20,
+                      child: FloatingActionButton.extended(
+                        onPressed: () {
+                          showDialog(
+                            context: context,
+                            builder: (context) => AlertDialog(
+                              title: const Text("Exportar PDF"),
+                              content: const Text(
+                                "Relatório exportado com sucesso!",
+                              ),
+                              actions: [
+                                TextButton(
+                                  onPressed: () => Navigator.of(context).pop(),
+                                  child: const Text("OK"),
+                                ),
+                              ],
+                            ),
+                          );
+                        },
+                        icon: const Icon(Icons.picture_as_pdf),
+                        label: const Text("Exportar PDF"),
+                        backgroundColor: Colors.white.withOpacity(0.15),
+                        foregroundColor: Colors.white,
+                        elevation: 0,
+                      ),
                     ),
                   ],
                 ),
-              );
-            },
-            icon: const Icon(Icons.picture_as_pdf),
-            label: const Text("Exportar PDF"),
-            backgroundColor: Colors.white.withOpacity(0.15),
-            foregroundColor: Colors.white,
-            elevation: 0,
-          ),
-        ),
-                    ],
-                  ),
               ),
             ),
           ],
@@ -106,14 +103,14 @@ class _DashboardScreenState extends State<DashboardScreen> {
     );
   }
 
-  /// ======== KPIs (Saldo, Receitas, Despesas) ========
+  // ======== KPIs (Saldo, Receitas, Despesas) ========
   Widget _buildKpiRow() {
     return const Row(
       children: [
         Expanded(
           child: _KpiCard(
             label: "Saldo Total",
-            value: "R\$ 0",
+            value: "R\$ 500",
             color: Color(0xFF22C55E),
           ),
         ),
@@ -121,7 +118,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
         Expanded(
           child: _KpiCard(
             label: "Receitas",
-            value: "R\$ 0",
+            value: "R\$ 1000",
             color: Color(0xFFA855F7),
           ),
         ),
@@ -129,12 +126,95 @@ class _DashboardScreenState extends State<DashboardScreen> {
         Expanded(
           child: _KpiCard(
             label: "Despesas",
-            value: "R\$ 0",
+            value: "R\$ 500",
             color: Color(0xFFF87171),
           ),
         ),
       ],
     );
+  }
+
+  /// ======= CONTEÚDO PRINCIPAL DINÂMICO =======
+  Widget _buildMainContent(int index) {
+    if (index == 0) {
+      // === DASHBOARD PRINCIPAL ===
+      return Padding(
+        padding: const EdgeInsets.only(top: 8.0),
+        child: Row(
+          children: [
+            // RESUMO DE TRANSAÇÕES
+            Expanded(
+              flex: 3,
+              child: _GlassPanel(
+                child: Padding(
+                  padding: const EdgeInsets.all(20),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: const [
+                      Text(
+                        "Resumo de Transações",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      SizedBox(height: 20),
+                      Expanded(
+                        child: Center(
+                          child: Text(
+                            "Gráficos e resumo geral aparecerão aqui.",
+                            style: TextStyle(color: Colors.white70),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            const SizedBox(width: 40),
+            // NEWSLETTER
+            Expanded(
+              flex: 2,
+              child: _GlassPanel(
+                child: Padding(
+                  padding: const EdgeInsets.all(20),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: const [
+                      Text(
+                        "News Letter",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      SizedBox(height: 20),
+                      Expanded(
+                        child: Center(
+                          child: Text(
+                            "Espaço para novidades e avisos.",
+                            style: TextStyle(color: Colors.white70),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      );
+    } else if (index == 1) {
+      // === TELA DE TRANSAÇÕES ===
+      return const TransactionsScreen();
+    } else {
+      // === CONFIGURAÇÕES ===
+      return const SettingsScreen();
+    }
   }
 }
 
@@ -171,7 +251,7 @@ class _Sidebar extends StatelessWidget {
             children: [
               const SizedBox(height: 24),
               const Text(
-                "LOGOTIPO DO APP",
+                "-*- MoneyYOU -*-",
                 style: TextStyle(
                   color: Colors.white,
                   fontWeight: FontWeight.w800,
@@ -191,7 +271,7 @@ class _Sidebar extends StatelessWidget {
               const Padding(
                 padding: EdgeInsets.all(12.0),
                 child: Text(
-                  "v0.0.2-alpha",
+                  "v0.0.3-alpha",
                   style: TextStyle(color: Colors.white38, fontSize: 12),
                 ),
               ),
@@ -288,8 +368,10 @@ class _KpiCard extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(label,
-                  style: const TextStyle(color: Colors.white70, fontSize: 13)),
+              Text(
+                label,
+                style: const TextStyle(color: Colors.white70, fontSize: 13),
+              ),
               const SizedBox(height: 8),
               Text(
                 value,

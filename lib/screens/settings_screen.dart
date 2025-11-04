@@ -46,7 +46,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   ),
                   const SizedBox(height: 16),
                   SwitchListTile(
-                    activeColor: Colors.purpleAccent,
+                    activeThumbColor: Colors.purpleAccent,
                     title: const Text(
                       "Modo escuro",
                       style: TextStyle(color: Colors.white),
