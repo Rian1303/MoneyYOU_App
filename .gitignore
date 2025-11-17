@@ -1,8 +1,11 @@
 
 ---
 
-## ⚙️ **`.gitignore` (para projetos Flutter)**
+## ⚙️ **`.gitignore` (for Flutter projects)**
 
+# Flutter/Dart
+.dart_tool/
+.packages
 ```gitignore
 # Flutter/Dart
 .dart_tool/
@@ -37,9 +40,10 @@ Thumbs.db
 **/ios/Pods/
 **/ios/Podfile.lock
 **/ios/Runner/GoogleService-Info.plist
-
+lib/firebase_options.dart
 # Firebase credentials
 firebase.json
+lib/firebase_options.dart
 
 # Logs
 *.log

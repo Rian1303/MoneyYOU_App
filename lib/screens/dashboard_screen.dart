@@ -129,8 +129,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
       builder: (context, constraints) {
         if (constraints.maxWidth < 600) {
           // Layout vertical em telas pequenas
-          return Column(
-            children: const [
+          return const Column(
+            children: [
               _KpiCard(label: "Saldo Total", value: "R\$ 500", color: Color(0xFF22C55E)),
               SizedBox(height: 12),
               _KpiCard(label: "Receitas", value: "R\$ 1000", color: Color(0xFFA855F7)),
@@ -175,17 +175,17 @@ class _DashboardScreenState extends State<DashboardScreen> {
   Widget _buildMainContent(int index) {
     switch (index) {
       case 0:
-        return SingleChildScrollView(
+        return const SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.only(top: 8.0),
+            padding: EdgeInsets.only(top: 8.0),
             child: Column(
               children: [
                 _GlassPanel(
                   child: Padding(
-                    padding: const EdgeInsets.all(20),
+                    padding: EdgeInsets.all(20),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      children: const [
+                      children: [
                         Text(
                           "Resumo de Transações",
                           style: TextStyle(
@@ -205,13 +205,13 @@ class _DashboardScreenState extends State<DashboardScreen> {
                     ),
                   ),
                 ),
-                const SizedBox(height: 20),
+                SizedBox(height: 20),
                 _GlassPanel(
                   child: Padding(
-                    padding: const EdgeInsets.all(20),
+                    padding: EdgeInsets.all(20),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      children: const [
+                      children: [
                         Text(
                           "Newsletter",
                           style: TextStyle(

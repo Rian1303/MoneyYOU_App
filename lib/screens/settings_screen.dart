@@ -66,7 +66,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
                         // ===== MODO CLARO =====
                         SwitchListTile(
-                          activeColor: const Color(0xFFA855F7),
+                          activeThumbColor: const Color(0xFFA855F7),
                           activeTrackColor:
                               const Color(0xFF7C3AED).withOpacity(0.5),
                           title: const Text(
@@ -118,12 +118,12 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 const SizedBox(height: 30),
 
                 // ===== INFORMAÇÕES DO APP =====
-                _GlassContainer(
+                const _GlassContainer(
                   child: Padding(
-                    padding: const EdgeInsets.all(20),
+                    padding: EdgeInsets.all(20),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      children: const [
+                      children: [
                         Text(
                           "Sobre o Aplicativo",
                           style: TextStyle(

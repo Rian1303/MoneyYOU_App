@@ -160,8 +160,8 @@ class _UserScreenState extends State<UserScreen> {
                 LayoutBuilder(
                   builder: (context, constraints) {
                     if (constraints.maxWidth < 600) {
-                      return Column(
-                        children: const [
+                      return const Column(
+                        children: [
                           _StatCard(
                             title: "Saldo Atual",
                             value: "R\$ 4.520,00",
@@ -182,9 +182,9 @@ class _UserScreenState extends State<UserScreen> {
                         ],
                       );
                     } else {
-                      return Row(
+                      return const Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: const [
+                        children: [
                           Expanded(
                             child: _StatCard(
                               title: "Saldo Atual",
